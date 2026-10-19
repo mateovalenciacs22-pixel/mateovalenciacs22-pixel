@@ -1,0 +1,251 @@
+/* Hoja de vida de Mateo Valencia Borja
+   Responsive para web y optimizada para impresión / PDF. */
+:root {
+  --navy: #14253d;
+  --blue: #245a85;
+  --teal: #167d83;
+  --text: #263445;
+  --muted: #607080;
+  --line: #dce4eb;
+  --soft: #f2f6f9;
+  --white: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  padding: 28px 16px;
+  background: #eaf0f4;
+  color: var(--text);
+  font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.48;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.resume {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 36px 42px 30px;
+  background: var(--white);
+  box-shadow: 0 12px 38px rgba(20, 37, 61, 0.12);
+  border-top: 7px solid var(--teal);
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 26px;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--teal);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+h1 {
+  margin: 0;
+  color: var(--navy);
+  font-size: clamp(27px, 4vw, 36px);
+  line-height: 1.08;
+  letter-spacing: -0.8px;
+}
+
+.headline {
+  margin: 10px 0 0;
+  color: var(--blue);
+  font-size: 15px;
+  font-weight: 650;
+}
+
+.contact {
+  padding-left: 20px;
+  border-left: 2px solid var(--line);
+}
+
+.contact p {
+  margin: 5px 0;
+  font-size: 11.5px;
+  overflow-wrap: anywhere;
+}
+
+.contact-icon {
+  display: inline-block;
+  width: 19px;
+  color: var(--teal);
+  font-weight: 800;
+}
+
+a {
+  color: var(--blue);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+a:hover { text-decoration: underline; }
+
+.section { margin-top: 18px; }
+
+.section h2 {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 9px;
+  color: var(--navy);
+  font-size: 14px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.section h2::before {
+  display: inline-block;
+  width: 4px;
+  height: 17px;
+  background: var(--teal);
+  border-radius: 2px;
+  content: "";
+}
+
+.section p { margin: 5px 0; }
+
+.entry { margin: 10px 0; }
+
+.entry-heading, .project-title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+h3 {
+  margin: 0;
+  color: var(--navy);
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 11.5px;
+}
+
+.status, .project-type {
+  flex-shrink: 0;
+  color: var(--teal);
+  font-size: 10px;
+  font-weight: 750;
+}
+
+.project-title { margin-bottom: 5px; }
+
+.tech-line { font-size: 11.5px; }
+
+.project-link { font-size: 11.5px; }
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.skill-group {
+  padding: 10px 11px 7px;
+  background: var(--soft);
+  border: 1px solid #e6edf2;
+  border-radius: 7px;
+}
+
+.skill-group:last-child { grid-column: 1 / -1; }
+
+.skill-group h3 { margin-bottom: 7px; }
+
+.skill {
+  display: inline-block;
+  margin: 0 4px 5px 0;
+  padding: 3px 7px;
+  border: 1px solid #d4e2e9;
+  border-radius: 4px;
+  background: #fff;
+  color: #30485c;
+  font-size: 10.5px;
+  white-space: nowrap;
+}
+
+.soft-skills {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 5px 20px;
+  margin: 0;
+  padding-left: 17px;
+}
+
+.soft-skills li { padding-left: 2px; }
+
+.footer {
+  margin-top: 18px;
+  padding: 11px 13px;
+  border-left: 3px solid var(--teal);
+  background: var(--soft);
+  font-size: 11.5px;
+}
+
+.footer p { margin: 0; }
+
+@media (max-width: 640px) {
+  body { padding: 0; background: var(--white); }
+  .resume { padding: 25px 20px; box-shadow: none; border-top-width: 5px; }
+  .header { grid-template-columns: 1fr; gap: 15px; }
+  .contact { padding: 12px 0 0; border-left: 0; border-top: 1px solid var(--line); }
+  .skills-grid { grid-template-columns: 1fr; }
+  .skill-group:last-child { grid-column: auto; }
+  .soft-skills { grid-template-columns: 1fr; }
+  .entry-heading, .project-title { align-items: flex-start; }
+}
+
+@page {
+  size: A4;
+  margin: 10mm;
+}
+
+@media print {
+  body {
+    padding: 0;
+    background: #fff;
+    font-size: 10.2px;
+    line-height: 1.32;
+  }
+  .resume {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 5mm 6mm;
+    border-top-width: 4px;
+    box-shadow: none;
+  }
+  .header { gap: 16px; padding-bottom: 12px; }
+  h1 { font-size: 27px; }
+  .headline { font-size: 12px; margin-top: 6px; }
+  .contact p { margin: 3px 0; font-size: 9.5px; }
+  .section { margin-top: 11px; }
+  .section h2 { margin-bottom: 5px; font-size: 11.5px; }
+  .section h2::before { height: 13px; }
+  .entry { margin: 6px 0; }
+  h3 { font-size: 10.8px; }
+  .muted, .tech-line, .project-link { font-size: 9.5px; }
+  .skill-group { padding: 7px 8px 4px; }
+  .skill { font-size: 8.7px; padding: 2px 5px; margin-bottom: 3px; }
+  .soft-skills { gap: 3px 14px; }
+  .footer { margin-top: 11px; padding: 8px 10px; font-size: 9.5px; }
+  a { color: var(--blue); }
+  .section, .entry, .skill-group, .footer { break-inside: avoid; }
+}
